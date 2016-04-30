@@ -1,16 +1,45 @@
 \documentclass[12pt]{article}
 \usepackage{amsmath}
+\usepackage{float}
+\newfloat{Snippet}{h}{cde}[section]
 \title{Sorting Algorithms}
 \author{Benjamin Hough, Erick Sanchez}
 \date{May 18, 2016}
+\usepackage{listings}
+\usepackage{color}
+\lstset{language=C++}
+\lstset{
+	language=[Visual]C++,
+	keywordstyle=\bfseries\ttfamily\color[rgb]{0,0,1},
+	identifierstyle=\ttfamily,
+	commentstyle=\color[rgb]{0.133,0.545,0.133},
+	stringstyle=\ttfamily\color[rgb]{0.627,0.126,0.941},
+	showstringspaces=false,
+	basicstyle=\small,
+	numberstyle=\footnotesize,
+	numbers=left,
+	stepnumber=1,
+	numbersep=10pt,
+	tabsize=2,
+	breaklines=true,
+	prebreak = \raisebox{0ex}[0ex][0ex]{\ensuremath{\hookleftarrow}},
+	breakatwhitespace=false,
+	aboveskip={1.5\baselineskip},
+	columns=fixed,
+	extendedchars=true
+	% frame=single,
+	% backgroundcolor=\color{lbcolor},
+}
 \begin{document}
 	\maketitle
 	\section*{Abstract}
 	The abstract will go here and will look awesome when it renders
-	
+
 	\tableofcontents
 	\pagebreak
 	
+
+
 	\section{Introduction}
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
 	
@@ -21,6 +50,11 @@
 	
 	\section{Body}
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+	
+		\begin{Snippet}
+			\lstinputlisting{InsertionSort.cpp}
+			\caption[Insertion Sort]{Insertion Sort implementation in C++}	
+		\end{Snippet}
 	
 	\subsection{part1}
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
