@@ -5,11 +5,17 @@
 \usepackage[margin=1.2in]{geometry}
 \usepackage{listings}
 \usepackage{color}
+\usepackage{sidecap}
+\usepackage[capbesideposition={bottom},facing=yes,capbesidesep=quad]{floatrow}
+\usepackage{textpos}
 
 \newfloat{Snippet}{h}{cde}[section]
 \title{\bfseries Sorting Algorithms}
 \author{Benjamin Hough, Erick Sanchez}
 \date{May 18, 2016}
+
+\usepackage{array}
+\setlength\extrarowheight{2pt} 
 
 
 \lstset{
@@ -65,27 +71,29 @@
 	\section{Body}
 	
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+
 	
 	
-	\begin{Snippet}
+	\subsection{Comparison Sorts}
+	
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
+	
+	\input{comparisonSortTable}
+		
+	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
+	
+	\begin{Snippet}[h]
 		\lstinputlisting{InsertionSort.cpp}
 		\caption[Insertion Sort]{Insertion Sort implementation in C++}	
 	\end{Snippet}
 	
 	
 	
-	\subsection{part1}
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
-	
-	\input{comparisonSortTable}
-	
-	
-	
-	\subsection{part2}
+	\subsection{Non-Comparison Sorts}
 	
 	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
 	
+	\input{non-comparisonSortTable}
 	
 	
 	\subsection{part3}
