@@ -5,9 +5,7 @@
 \usepackage[margin=1.2in]{geometry}
 \usepackage{listings}
 \usepackage{color}
-\usepackage{sidecap}
-\usepackage[capbesideposition={bottom},facing=yes,capbesidesep=quad]{floatrow}
-\usepackage{textpos}
+
 
 \newfloat{Snippet}{h}{cde}[section]
 \title{\bfseries Sorting Algorithms}
@@ -20,12 +18,12 @@
 
 \lstset{
 	language=[Visual]C++,
+	basicstyle=\footnotesize, 
 	keywordstyle=\bfseries\ttfamily\color[rgb]{0,0,1},
 	identifierstyle=\ttfamily,
 	commentstyle=\color[rgb]{0.133,0.545,0.133},
 	stringstyle=\ttfamily\color[rgb]{0.627,0.126,0.941},
 	showstringspaces=false,
-	basicstyle=\small,
 	numberstyle=\footnotesize,
 	numbers=left,
 	stepnumber=1,
@@ -100,6 +98,11 @@
 	
 	sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
 	
+	% remove comments to force single page display
+	%	\begin{Snippet}[h!] 
+			\lstinputlisting{mergeSort2.cpp}
+			\caption[Insertion Sort]{Insertion Sort implementation in C++}	
+	%	\end{Snippet}
 	
 	\section{Conclusion}
 	
