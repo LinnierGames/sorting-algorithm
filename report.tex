@@ -44,41 +44,50 @@
 	
 	\maketitle
 	
-	
 	\section*{Abstract}
 	
 	The abstract will go here and will look awesome when it renders
-
+	
 	\tableofcontents
 	
 	\pagebreak
 	
-
-
-	\section{Introduction}
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
 	
 	
+	\section{Introduction} %"Introduction - Give a short but informative introduction to your chosen topic, including the current “state of the field” as appropriate. Outline what you will do in the balance of the paper (ie. Explain the goals of the paper). Indicate why this topic is exciting/useful."
 	
-	\section{Background}
+	 Sorting algorithms are a fundamental type of algorithms that many other more sophisticated algorithms are built upon.
+	 In the most abstract form sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be (typically numeric or alphabetic order is used).
+	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available. 
+	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency. 
+	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison. 
+	 Next it will examine sorting efficiencies, different applications of sorting algorithms, and methods for choosing the appropriate algorithm for a given application. 
+	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form. 
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+	
+	
+	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
+	
+	
 	
 	
 	\section{Body}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+	\subsection{Comparison Sorts}
+	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically > (greater than), or < (less than)  is used.
+	quicksort, heap, insertion, selection, merge, etc.
+	
 
 	
+	What are they
+	How do they work
+	When and when not to use them
 	
-	\subsection{Comparison Sorts}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
 	
-	\input{comparisonSortTable}
-		
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollici
+	\input{comparisonSortTable} %rad table file
+	
+	
 	
 	\begin{Snippet}[h]
 		\lstinputlisting{InsertionSort.cpp}
@@ -89,29 +98,65 @@
 	
 	\subsection{Non-Comparison Sorts}
 	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+	Non-comparison sorts, like the name implies do not rely on the comparison operators (<,>,<=,>=) to sort.
+	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed. 
+	Unlike the comparison sorts described above which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
 	
-	\input{non-comparisonSortTable}
+	bucket, counting, radix
+	What are they
+	How do they work
+	When and when not to use them
 	
+	\input{non-comparisonSortTable} %rad table file
 	
-	\subsection{part3}
+	\subsection{Efficiency and Memory}
 	
-	sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
+
+
 	
-	% remove comments to force single page display
-	%	\begin{Snippet}[h!] 
-			\lstinputlisting{mergeSort2.cpp}
-			\caption[Insertion Sort]{Insertion Sort implementation in C++}	
-	%	\end{Snippet}
-	
-	\section{Conclusion}
-	
-	Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at tincidunt elit. Cras non elementum eros. Morbi felis tellus, gravida ac elementum ac, efficitur vel tellus. Fusce imperdiet sem et interdum pretium. Phasellus a velit ut diam pulvinar elementum. Integer id neque sed eros sodales lacinia. Praesent interdum rhoncus erat dignissim accumsan. Donec tincidunt turpis lorem, lobortis varius ante rhoncus in. Nam sollicitudin rutrum sem sit amet varius. Proin eros mi, ultrices ac lacus id, commodo pharetra dui. Etiam sed ex at orci malesuada auctor. Quisque pulvinar ut mi eu lobortis. Aliquam eget risus pulvinar, volutpat quam ac, posuere ex. Nam vel ligula non lectus varius rutrum. Proin eget turpis risus.
-	
-	\section{Bibliography}%there is built in feature for bibliography but i dont think we need it%
+
 	
 	
+	\subsection{Exploration of a New Sorting Algorithm}
+	
+	n sorting algorithm. It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
+	So instead we took an already well known algorithm and put a twist on it. 
+	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
+	It then pieces it back together as it sorts. 
+	A visual representation of this is shown below.
+
+	
+	Now onto our variant. 
+	We decided to forgo the recursion and keep everything to one function call. 
+	The reasoning for this is that recursive functions have an overhead associated with them caused by the increased call stack (local variables must be reinitialized at each level and the entrance of each function call must be stored so it can be returned to when the function exits). 
+	By skipping the recursion step it allows the algorithm to start immediately comparing pairs of elements. 
+	Visually it is represented by the bottom half of the picture above. 
+	The algorithm in its entirety is shown below, it is written in C++.
+	
+%	remove comments to force single page display
+%	\begin{Snippet}[h!] 
+		\lstinputlisting{mergeSort2.cpp}
+	%	\caption[Insertion Sort]{Insertion Sort implementation in C++}	
+%\end{Snippet}
+
+	Just knowing that an algorithm works is not enough; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
+	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
+	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
+	To our surprise the new mergesort outperformed many of the other algorithms. 
+	For lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
+	The efficiency of insertion sort on small list sizes can be seen in the graph as well. Quicksort is consistently faster than the new mergesort, with quicksort averaging 80\% of the runtime over the entire sample range. 
+	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
+	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
+
+
+
+
+\section{Conclusion}
+
+
+
+\section{Bibliography}%there is built in feature for bibliography but i dont think we need it%
+
+
 \end{document}
-
-
 
