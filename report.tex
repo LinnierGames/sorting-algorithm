@@ -113,7 +113,9 @@
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
-	n sorting algorithm. It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
+	
+	To fulfill the requirement of demonstrating original thought we looked at creating our own sorting algorithm.
+	 It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
 	So instead we took an already well known algorithm and put a twist on it. 
 	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
 	It then pieces it back together as it sorts. 
@@ -136,12 +138,11 @@
 	Just knowing that an algorithm works is not enough; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
 	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
 	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
-	To our surprise the new mergesort outperformed many of the other algorithms. 
+	To our surpriswe the new mergesort outperformed many of the other algorithms. 
 	For lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
 	The efficiency of insertion sort on small list sizes can be seen in the graph as well. Quicksort is consistently faster than the new mergesort, with quicksort averaging 80\% of the runtime over the entire sample range. 
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
 	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
-
 
 
 
