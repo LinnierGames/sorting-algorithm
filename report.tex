@@ -5,7 +5,6 @@
 \usepackage[margin=1.2in]{geometry}
 \usepackage{listings}
 \usepackage{color}
-\usepackage[backend=bibtex]{biblatex}
 \usepackage{graphicx}
 \bibliography{ref}
 
@@ -70,12 +69,12 @@
 	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
 	
 	``\underline{input} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}\newline
-	``An algorithm is said to be \underline{correct} if, for every input instance, it halts with the correct output. We say that a correct algorithm \underline{solves} the given computational problem"\;(Introduction to Algorithms)\;p.6\newline
-	``The number that we wish to be sort are also known as the \underline{keys}"\;(Introduction to Algorithms)\;p.16\newline
-	``An \underline{algorithm} is a procedure or formula for solving a problem."\;(Wikipedia)\;\newline
-	``A \underline{compiler} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\;(Wikipeadia)\;\newline
-	``The \underline{call stack} is a stack data structure that stores information about the active subroutines of a computer program"\;(Wikipeadia)\;Whenever a function calls a new function, this adds to the stack.\newline
-	``A \underline{recursion function} (DEF) is a function which either calls itself"\;(Wikipedia)\;When a function calls itself, there needs to be a condition for the function to stop itself; end the recursion. This is called \underline{end case}. The end case does not contain a function call to itself thus stopping the recursion.\newline
+	``An algorithm is said to be \underline{correct} if, for every input instance, it halts with the correct output. We say that a correct algorithm \underline{solves} the given computational problem"(Introduction to Algorithms)\cite[p.~6]{intro}\newline
+	``The number that we wish to be sort are also known as the \underline{keys}"(Introduction to Algorithms)\cite[p.~16]{intro}\newline
+	``An \underline{algorithm} is a procedure or formula for solving a problem."\cite{wiki}\newline
+	``A \underline{compiler} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\cite{wiki}\newline
+	``The \underline{call stack} is a stack data structure that stores information about the active subroutines of a computer program"\cite{wiki} Whenever a function calls a new function, this adds to the stack.\newline
+	``A \underline{recursion function} (DEF) is a function which either calls itself"\cite{wiki} When a function calls itself, there needs to be a condition for the function to stop itself; end the recursion. This is called \underline{end case}. The end case does not contain a function call to itself thus stopping the recursion.\newline
 	
 	\section{Body}
 	
@@ -83,7 +82,7 @@
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically > (greater than), or < (less than)  is used.
 	quicksort, heap, insertion, selection, merge, etc.
 	
-
+	insert insertion sort description
 	
 	What are they
 	How do they work
@@ -186,10 +185,12 @@
 \begin{thebibliography}{9}
 	\bibitem{intro}
 	Introduction to Algorithms, Third Edition,
-	\emph{\LaTeX: a document preparation system},
+	% todo: update author \emph{\LaTeX: a document preparation system},
 	Addison Wesley, Massachusetts,
 	2nd edition,
 	1994.
+	\bibitem{wiki}
+	Wikipedia
 	
 \end{thebibliography}
 
