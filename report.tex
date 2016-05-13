@@ -5,6 +5,9 @@
 \usepackage[margin=1.2in]{geometry}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[backend=bibtex]{biblatex}
+
+\bibliography{ref}
 
 
 \newfloat{Snippet}{h}{cde}[section]
@@ -144,13 +147,16 @@
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
 	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
 
-
+\cites{0}
 
 \section{Conclusion}
 
+\pagebreak
 
 
-\section{Bibliography}%there is built in feature for bibliography but i dont think we need it%
+
+
+\printbibliography
 
 
 \end{document}
