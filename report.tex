@@ -168,15 +168,17 @@
 	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
 	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
 	To our surpriswe the new mergesort outperformed many of the other algorithms. 
-	For lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
+	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
 	The efficiency of insertion sort on small list sizes can be seen in the graph as well. Quicksort is consistently faster than the new mergesort, with quicksort averaging 80\% of the runtime over the entire sample range. 
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
 	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
 
 	\begin{figure}[h]
 		\centering
+
 		\includegraphics[width=6in]{figure_3.png}
 		\caption{Algorithm Efficiency}
+		\label{fig:algeff}
 	\end{figure}
 	
 \section{Conclusion}
