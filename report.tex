@@ -101,7 +101,7 @@
 	
 	\subsection{Non-Comparison Sorts}
 	
-	Non-comparison sorts, like the name implies do not rely on the comparison operators (<,>,<=,>=) to sort.
+	Non-comparison sorts, like the name implies do not rely on the comparison operators $(<,>,<=,>=)$ to sort.
 	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed. 
 	Unlike the comparison sorts described above which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
 	
@@ -113,6 +113,24 @@
 	\input{non-comparisonSortTable} %rad table file
 	
 	\subsection{Efficiency and Memory}
+	
+	Solving the same sorting problem often comes with the best algorithm when talking about efficiency.
+	Computer hardware and software play the biggest role when dealing with efficiency.
+	
+	Let’s write insertion sort as $c_1 \cdot\,n^2$ and merge sort as $c_2 \cdot\,n\,\log_2{n}$, $c_1$ and $c_2$ are based off of how efficient the software and compiler are.
+	We see that insertion sort has a factor of n, while merge sort has a factor of $\log_2{n}$ which is far smaller.
+	But after writing the perfect code, $c_1$ and $c_2$ become closer to 1, getting the best efficiency will have to depend on the hardware and size of the list that needs to be sorted.
+	Let’s take a deeper look. Running these two algorithms, insertion sort and merge sort, on two different machines; A and B. Each machine is sorting an array of ten million numbers.
+	Machine A executes ten billion instructions per second and machine B executes only ten million per second.
+	Thus, machine A is a thousand times faster than machine B.
+	The algorithm on machine A is written in machine language that requires 2 $\cdot\;n^2$ instructions to sort n numbers, with $c_1$ = 2.
+	For machine B, the algorithm is written using a high-level language with an inefficient compiler that requires 50 $\cdot\;n\;\log_2{n}$ instructions to sort n numbers. $c_2$ = 50, which is a poor constant.
+	Machine A takes\newline
+	
+	$\frac{2\,\cdot\,(10^7)^2 \;instructions}{10^{10} \;instructions/\!second}=20000\mbox{ seconds ( more than 5.5 hours)}$ 
+	And machine B$\newline$
+	
+	$\frac{50\,\cdot\,10^7\,\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx1163\mbox{ seconds ( less than 20 minutes)}$ 
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
