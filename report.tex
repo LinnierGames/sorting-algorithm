@@ -5,6 +5,9 @@
 \usepackage[margin=1.2in]{geometry}
 \usepackage{listings}
 \usepackage{color}
+\usepackage[backend=bibtex]{biblatex}
+
+\bibliography{ref}
 
 
 \newfloat{Snippet}{h}{cde}[section]
@@ -66,7 +69,7 @@
 	
 	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
 	
-	``\underline{input} sequence is called an instance of the sorting problem"\;(Introduction to Algorithms)\;p.5\newline
+	``\underline{input} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}\newline
 	``An algorithm is said to be \underline{correct} if, for every input instance, it halts with the correct output. We say that a correct algorithm \underline{solves} the given computational problem"\;(Introduction to Algorithms)\;p.6\newline
 	``The number that we wish to be sort are also known as the \underline{keys}"\;(Introduction to Algorithms)\;p.16\newline
 	``An \underline{algorithm} is a procedure or formula for solving a problem."\;(Wikipedia)\;\newline
@@ -140,7 +143,9 @@
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
-	n sorting algorithm. It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
+	
+	To fulfill the requirement of demonstrating original thought we looked at creating our own sorting algorithm.
+	 It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
 	So instead we took an already well known algorithm and put a twist on it. 
 	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
 	It then pieces it back together as it sorts. 
@@ -163,20 +168,21 @@
 	Just knowing that an algorithm works is not enough; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
 	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
 	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
-	To our surprise the new mergesort outperformed many of the other algorithms. 
+	To our surpriswe the new mergesort outperformed many of the other algorithms. 
 	For lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
 	The efficiency of insertion sort on small list sizes can be seen in the graph as well. Quicksort is consistently faster than the new mergesort, with quicksort averaging 80\% of the runtime over the entire sample range. 
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
 	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
 
 
-
-
 \section{Conclusion}
 
+\pagebreak
 
 
-\section{Bibliography}%there is built in feature for bibliography but i dont think we need it%
+
+
+\printbibliography
 
 
 \end{document}

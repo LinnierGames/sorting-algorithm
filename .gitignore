@@ -5,3 +5,7 @@
 *.gdoc
 *.toc
 report.pdf
+report-blx.*
+*.bbl
+*.blg
+*.xml
