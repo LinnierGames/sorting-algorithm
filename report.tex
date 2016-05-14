@@ -6,10 +6,17 @@
 \usepackage{listings}
 \usepackage{color}
 \usepackage{graphicx}
+\usepackage{caption}
+\usepackage{newfloat}
+\usepackage{subcaption}
+
 \bibliography{ref}
 
+\DeclareCaptionType{snip}[Typename][List of snippet]
+\newenvironment{snippet}{\captionsetup{type=snippet}}{}
 
-\newfloat{Snippet}{h}{cde}[section]
+
+\DeclareFloatingEnvironment{Snippet}
 \title{\bfseries Sorting Algorithms}
 \author{Benjamin Hough, Erick Sanchez}
 \date{May 18, 2016}
@@ -80,7 +87,7 @@
 	\section{Body}
 	
 	\subsection{Comparison Sorts}
-	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically > (greater than), or < (less than)  is used.
+	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	quicksort, heap, insertion, selection, merge, etc.
 	
 	insert insertion sort description
@@ -89,15 +96,13 @@
 	How do they work
 	When and when not to use them
 	
-	
-	
 	\input{comparisonSortTable} %rad table file
 	
 	
-	
 	\begin{Snippet}[h]
-		\lstinputlisting{InsertionSort.cpp}
 		\caption[Insertion Sort]{Insertion Sort implementation in C++}	
+		\lstinputlisting{InsertionSort.cpp}
+		\label{snip:ins}
 	\end{Snippet}
 	
 	
@@ -151,7 +156,24 @@
 	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
 	It then pieces it back together as it sorts. 
 	A visual representation of this is shown below.
-
+	
+	
+\begin{figure}[H]
+	
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth, height=5cm]{Merge_sort_algorithm_diagram.png} 
+		\caption{Standard Mergesort}
+		\label{fig:stdmerge}
+	\end{subfigure}
+	\begin{subfigure}{0.5\textwidth}
+		\includegraphics[width=0.9\linewidth, height=5cm]{Merge_sort_algorithm_diagram.png}
+		\caption{Our Mergesort}
+		\label{fig:newmerge}
+	\end{subfigure}
+	
+	\caption{Algorithm flow of the standard mergesort and our own implementation}
+	\label{fig:bothmerge}
+\end{figure}
 	
 	Now onto our variant. 
 	We decided to forgo the recursion and keep everything to one function call. 
@@ -160,11 +182,11 @@
 	Visually it is represented by the bottom half of the picture above. 
 	The algorithm in its entirety is shown below, it is written in C++.
 	
-%	remove comments to force single page display
-%	\begin{Snippet}[h!] 
+	\begin{center}
+		\captionof{Snippet}[New Mergesort]{Our own mergesort implementation that doesn't use recursion. Written in C++}
 		\lstinputlisting{mergeSort2.cpp}
-	%	\caption[Insertion Sort]{Insertion Sort implementation in C++}	
-%\end{Snippet}
+		\label{snip:newmerge}
+	\end{center}
 
 	Just knowing that an algorithm works is not enough; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
 	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
@@ -177,7 +199,6 @@
 
 	\begin{figure}[h]
 		\centering
-
 		\includegraphics[width=6in]{figure_3.png}
 		\caption{Algorithm Efficiency}
 		\label{fig:algeff}
