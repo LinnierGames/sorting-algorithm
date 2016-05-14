@@ -148,31 +148,19 @@
 	                                                                                 
 	\subsubsection{Big O Notation}
 	
-	\paragraph{What is Big O Notation}
-	def 
-	
-	\paragraph{Analysis of Insertion Sort}
-	
 	An algorithm can take at most seconds to finish executing.
 	Some can take hours or even years to finish.
 	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
 	But before we understand Big O notation, we’ll look into analyzing insertion sort.
-	The notations we use to describe the asymptotic running time of an algorithm are defined in terms of functions whose domains are the set of natural numbers $\mathbb{N}$ \{ 1, 2 , 3 .. \}–p.43
 	
 	\paragraph{Analysis of Insertion Sort}
 	
 	The notations we use to describe the asymptotic running time of an algorithm are defined in terms of functions whose domains are the set of natural numbers, $\mathbb{N}$ \{ 1, 2 , 3 .. \}~\cite[p.~43]{intro}
 	This is called asymptotic notation.
 	For insertion sort, the worst-case is $n^2$ depending on the input of how unsorted the list is.
-	The larger the list, the longer it’ll take thus, we need to define a few things to characterize insertion sort; running time and size of input.
-	In some cases size of input can go stretch from number of items in a list to number of bits after adding two number. 
 	The larger the list, the longer it'll take. Thus, we need to define a few things to characterize insertion sort; running time and size of input.
 	In some cases, the $\textit{\textbf{input size}}$ can go stretch from number of items in a list to number of bits after adding two number. 
 	For insertion sort, it’s going to be the number of elements to be sorted.
-	This does not include how unsorted the arrangement of number, just the size.
-	The running time is going to be the number of steps, or instructions.
-	To better understand we’ll look at an example for a simple loop.
-	Each line of code will take $c_i$ long to execute; i denoted for each line of code:
 	This does not depend on how unsorted the arrangement of number, just the size.
 	The $\textit{\textbf{running time}}$ is going to be the number of steps, or instructions.
 	Now, each line of code can't always take the same amount of $\textit{time}$ to execute.
@@ -183,9 +171,24 @@
 	
 	\input{sampleLoop}
 	
-	\input{sampleLoop} %rad table file
+	Thus, the $\textit{time}$ it takes to execute this loop is
+	\begin{center}
+		T(n) = $c_1n$ + $c_2n$ + $c_3\sum_{r=1}^{5}$ + $c_4\sum_{r=1}^{5}$
+	\end{center}
+	is the characteristic formula for this algorithm shown in Table~\ref{tab:simpleCode}.
+	For this linear function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
 	
-	Thus T(n) = $c_1n$ + $c_2n$ + $c_3\sum_{r=1}^{5}$ + $c_4\sum_{r=1}^{5}$ is the characteristic formula for this alrgorithm shown in Table~\ref{tab:simpleCode}.
+	Coming back to insertion sort, the characteristic for the best case of insertion sort is
+	\begin{center}
+		T(n) = ($c_1$ + $c_2$ + $c_4$ + $c_5$ + $c_8$)n - ($c_2$ + $c_4$ + $c_5$ + $c_8$)
+	\end{center}
+	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown below
+	
+	\input{insertionSort.tex}
+	
+	\paragraph{What is Big O Notation}
+	
+	def 
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
