@@ -88,6 +88,7 @@
 	\section{Body}
 	
 	\subsection{Comparison Sorts}
+	\label{CompSort}
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	quicksort, heap, insertion, selection, merge, etc.
 	
@@ -110,13 +111,12 @@
 	
 	\subsection{Non-Comparison Sorts}
 	
-	Non-comparison sorts, like the name implies do not rely on the comparison operators $(<,>,<=,>=)$ to sort.
+	Non-comparison sorts, like the name implies do not rely on the comparison operators $<$,$>$,$\le$,$\ge$ to sort.
 	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed. 
 	Unlike the comparison sorts described above which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
-	
 	bucket, counting, radix
 	What are they
-	How do they work
+	How do they work\ref{CompSort}
 	When and when not to use them
 	
 	\input{non-comparisonSortTable} %rad table file
@@ -189,12 +189,12 @@
 \begin{figure}[H]
 	
 	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=5cm]{Merge_sort_algorithm_diagram.png} 
+		\includegraphics[width=2.5in]{Merge_sort_algorithm_diagram.png} 
 		\caption{Standard Mergesort}
 		\label{fig:stdmerge}
 	\end{subfigure}
 	\begin{subfigure}{0.5\textwidth}
-		\includegraphics[width=0.9\linewidth, height=5cm]{Merge_sort_algorithm_diagram.png}
+		\includegraphics[width=2.5in]{New_merge_sort_algorithm_diagram.png}
 		\caption{Our Mergesort}
 		\label{fig:newmerge}
 	\end{subfigure}
