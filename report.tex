@@ -9,6 +9,7 @@
 \usepackage{caption}
 \usepackage{newfloat}
 \usepackage{subcaption}
+\usepackage{amssymb}
 
 \bibliography{ref}
 
@@ -142,10 +143,37 @@
 	And machine B
 	
 	$$\frac{50\,\cdot\,10^7\,\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx1163\mbox{ seconds ( less than 20 minutes)}$$
-	
+	                                                                                 
 	Looking at this one case, having one algorithm isn't going to be the better one for all cases. Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be. Why? That's when we need to side 
+	                                                                                 
+	\subsubsection{Big O Notation}
 	
-	\subsubsection{Big O}
+	intro
+	
+	\paragraph{What is Big O Notation}
+	
+	def 
+	
+	\paragraph{Analysis of Insertion Sort}
+	
+	An algorithm can take at most seconds to finish executing.
+	Some can take hours or even years to finish.
+	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
+	But before we understand Big O notation, we’ll look into analyzing insertion sort.
+	The notations we use to describe the asymptotic running time of an algorithm are defined in terms of functions whose domains are the set of natural numbers $\mathbb{N}$ \{ 1, 2 , 3 .. \}–p.43
+	This is called asymptotic notation.
+	For insertion sort, the worst-case is $n^2$ depending on the input of how unsorted the list is.
+	The larger the list, the longer it’ll take thus, we need to define a few things to characterize insertion sort; running time and size of input.
+	In some cases size of input can go stretch from number of items in a list to number of bits after adding two number. 
+	For insertion sort, it’s going to be the number of elements to be sorted.
+	This does not include how unsorted the arrangement of number, just the size.
+	The running time is going to be the number of steps, or instructions.
+	To better understand we’ll look at an example for a simple loop.
+	Each line of code will take $c_i$ long to execute; i denoted for each line of code:
+	
+	\input{sampleLoop} %rad table file
+	
+	Thus T(n) = $c_1n$ + $c_2n$ + $c_3\sum_{r=1}^{5}$ + $c_4\sum_{r=1}^{5}$ is the characteristic formula for this alrgorithm shown in Table~\ref{tab:simpleCode}.
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
@@ -197,7 +225,7 @@
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
 	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
 
-	\begin{figure}[h]
+	\begin{figure}[H]
 		\centering
 		\includegraphics[width=6in]{figure_3.png}
 		\caption{Algorithm Efficiency}
