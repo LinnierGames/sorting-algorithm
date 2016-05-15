@@ -10,6 +10,7 @@
 \usepackage{newfloat}
 \usepackage{subcaption}
 \usepackage{amssymb}
+\usepackage{tabto}
 
 \bibliography{ref}
 
@@ -23,7 +24,7 @@
 \date{May 18, 2016}
 
 \usepackage{array}
-\setlength\extrarowheight{2pt} 
+\setlength\extrarowheight{3pt} 
 
 
 \lstset{
@@ -70,6 +71,7 @@
 	 In the most abstract form sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be (typically numeric or alphabetic order is used).
 	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available. 
 	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency. 
+	 
 	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison. 
 	 Next it will examine sorting efficiencies, different applications of sorting algorithms, and methods for choosing the appropriate algorithm for a given application. 
 	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form. 
@@ -112,7 +114,6 @@
 	\end{Snippet}
 	
 	
-	
 	\subsection{Non-Comparison Sorts}
 	
 	Non-comparison sorts, like the name implies do not rely on the comparison operators $<$,$>$,$\le$,$\ge$ to sort.
@@ -129,33 +130,40 @@
 	Solving the same sorting problem often comes with the better algorithm when talking about efficiency.
 	Computer hardware and software play the biggest role when dealing with efficiency.
 	
-	\paragraph{Insertion and Merge Sort}
+	\subsubsection{Insertion Sort Vs. Merge Sort}
 	
-	Let’s write insertion sort as $c_1 \cdot\,n^2$ and merge sort as $c_2 \cdot\,n\,\log_2{n}$, $c_1$ and $c_2$ are based off of how efficient the software and compiler are.
-	We see that insertion sort has a factor of n, while merge sort has a factor of $\log_2{n}$ which is far smaller.
-	But after writing the perfect code, $c_1$ and $c_2$ become closer to 1, getting the best efficiency will have to depend on the hardware and size of the list that needs to be sorted.
-	Let’s take a deeper look. Running these two algorithms, insertion sort and merge sort, on two different machines; A and B. Each machine is sorting an array of ten million numbers.
-	Machine A executes ten billion instructions per second and machine B executes only ten million per second.
+	Let’s write Insertion sort as $c_1 \cdot\,n^2$ and Merge sort as $c_2 \cdot\,n\,\log_2{n}$, where $c_1$ and $c_2$ are constants dependent on how well the algorithm is implemented and how efficient the software and compiler are.
+	When we compare the two, we see that Insertion sort has an extra factor of $n$, while Merge sort has a factor of $\log_2{n}$ which is far smaller for large $n$.
+	Let’s take a deeper look.
+	Running these two algorithms, Insertion sort and Merge sort, on two different machines; A and B respectively. 
+	Each machine is sorting an array of 10 million numbers.
+	Machine A executes 10 billion instructions per second and machine B executes only 10 million per second.
 	Thus, machine A is a thousand times faster than machine B.
-	The algorithm on machine A is written in machine language that requires 2 $\cdot\;n^2$ instructions to sort n numbers, with $c_1$ = 2.
-	For machine B, the algorithm is written using a high-level language with an inefficient compiler that requires 50 $\cdot\;n\;\log_2{n}$ instructions to sort n numbers. $c_2$ = 50, which is a poor constant.
-	Machine A takes
+	Insertion sort on machine A is written in an efficient manner resulting in a value of 3 for $c_1$. Thus it requires  $3n^2$ instructions to sort n numbers.
+	For machine B, the algorithm Merge sort is implemented poorly causing $100 n\log_2{n}$ instructions to sort n numbers. 
+
+	Machine A takes:
 	
-	$$\frac{2\,\cdot\,(10^7)^2 \;instructions}{10^{10} \;instructions/\!second}=20000\mbox{ seconds ( more than 5.5 hours)}$$
+	\begin{equation}
+	\frac{3\cdot(10^7)^2 \;instructions}{10^{10} \;instructions/\!second}=30000\mbox{ seconds (more than 8 hours)}
+	\end{equation}
 	
-	And machine B
+	And machine B takes:
+	\begin{equation}	
+	\frac{100\cdot 10^7\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx2300\mbox{ seconds (just under 40 minutes)}
+	\end{equation}
 	
-	$$\frac{50\,\cdot\,10^7\,\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx1163\mbox{ seconds ( less than 20 minutes)}$$
-	                                                                                 
 	Looking at this one case, having one algorithm isn't going to be the better one for all cases. Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be. Why? That's when we need to side 
-	                                                                                 
+
+
 	\subsubsection{Big O Notation}
 	
 	An algorithm can take at most seconds to finish executing.
 	Some can take hours or even years to finish.
 	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
 	But before we understand Big O notation, we’ll look into analyzing insertion sort.
-	
+
+
 	\paragraph{Analysis of Insertion Sort}
 	
 	The notations we use to describe the asymptotic running time of an algorithm are defined in terms of functions whose domains are the set of natural numbers, $\mathbb{N}$ \{ 1, 2 , 3 .. \}~\cite[p.~43]{intro}
@@ -171,20 +179,18 @@
 	
 	To better understand, we’ll look at an example for a simple loop.
 	Each line of code will take $c_i$ long to execute; $i$ is denoted for each line of code.
-	
 	\input{sampleLoop}
-	
 	Thus, the $\textit{time}$ it takes to execute this loop is
-	\begin{center}
-		T(n) = $c_1n$ + $c_2n$ + $c_3\sum_{r=1}^{5}$ + $c_4\sum_{r=1}^{5}$
-	\end{center}
+	\begin{equation}
+		T(n) = c_1n + c_2n + c_3\sum_{r=1}^{5} + c_4\sum_{r=1}^{5}
+	\end{equation}
 	is the characteristic formula for this algorithm shown in Table~\ref{tab:simpleCode}.
 	For this linear function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
 	
 	Coming back to insertion sort, the characteristic for the best case of insertion sort is
-	\begin{center}
-		T(n) = ($c_1$ + $c_2$ + $c_4$ + $c_5$ + $c_8$)n - ($c_2$ + $c_4$ + $c_5$ + $c_8$)
-	\end{center}
+	\begin{equation}
+		T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
+	\end{equation}
 	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown below
 	
 	\input{insertionSort.tex}
@@ -201,7 +207,7 @@
 	So instead we took an already well known algorithm and put a twist on it. 
 	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
 	It then pieces it back together as it sorts. 
-	A visual representation of this is shown below.
+	A visual representation of this is shown in Figure~\ref{fig:stdmerge}.
 	
 	
 \begin{figure}[H]
@@ -217,31 +223,33 @@
 		\label{fig:newmerge}
 	\end{subfigure}
 	
-	\caption{Algorithm flow of the standard mergesort and our own implementation}
+	\caption{Algorithm flow of the standard Merge sort and our own implementation}
 	\label{fig:bothmerge}
 \end{figure}
 	
 	Now onto our variant. 
 	We decided to forgo the recursion and keep everything to one function call. 
-	The reasoning for this is that recursive functions have an overhead associated with them caused by the increased call stack (local variables must be reinitialized at each level and the entrance of each function call must be stored so it can be returned to when the function exits). 
+	The reasoning for this is that recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}. 
 	By skipping the recursion step it allows the algorithm to start immediately comparing pairs of elements. 
-	Visually it is represented by the bottom half of the picture above. 
-	The algorithm in its entirety is shown below, it is written in C++.
+	Visually it is represented by Figure~\ref{fig:newmerge}.
+	Do not let the Figure~\ref{fig:newmerge} fool you however, just because it looks like half the number of steps does not mean it is twice as fast.
+	Before we go into the efficiency here is algorithm in its entirety is shown below in Snippet~\ref{snip:newmerge}.
 	
 	\begin{center}
-		\captionof{Snippet}[New Mergesort]{Our own mergesort implementation that doesn't use recursion. Written in C++}
+		\captionof{Snippet}[New Mergesort]{Our own Merge sort implementation that doesn't use recursion. Written in C++}
 		\lstinputlisting{mergeSort2.cpp}
 		\label{snip:newmerge}
 	\end{center}
 
-	Just knowing that an algorithm works is not enough; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
-	The new mergesort algorithm was compared to a standard implementation of mergesort, introsort, quicksort, and insertion sort. 
+	Just knowing that an algorithm works is not enough\footnote{We do not prove that the new merge sort works, you must take our word that it does.}; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
+	The new Merge sort algorithm was compared to a standard implementation of Merge sort, Introsort, Quicksort, and Insertion sort. 
 	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
-	To our surpriswe the new mergesort outperformed many of the other algorithms. 
-	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new mergesort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort. 
-	The efficiency of insertion sort on small list sizes can be seen in the graph as well. Quicksort is consistently faster than the new mergesort, with quicksort averaging 80\% of the runtime over the entire sample range. 
+	To our surprise the new Merge sort outperformed many of the other algorithms. 
+	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new Merge sort performed 13X faster than the built in Introsort and 3.6X faster than the standard merge sort. 
+	The efficiency of Insertion sort on small list sizes can be seen in the graph as well.
+	Quicksort is consistently faster than the new Merge sort, with Quicksort averaging 80\% of the runtime over the entire sample range.
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
-	Each algorithm in the plot with the exception of insertion sort has an average runtime of $ n \cdot log (n) $, yet it is clear that that is not a good enough descriptor.
+	Each algorithm in Figure~\ref{fig:algeff} with the exception of insertion sort has an average runtime of $\Theta( n \cdot log (n) )$, yet it is clear from the plot that $\Theta()$ and $O()$ are not a precise enough descriptors when looking for the absolute fastest algorithm.
 
 	\begin{figure}[H]
 		\centering
