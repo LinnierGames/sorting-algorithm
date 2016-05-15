@@ -3,11 +3,11 @@
 		\centering
 		\begin{tabular}{|l|l|l|l|}
 			 \hline
-			& & cost & times                      \\ \hline
-			1 & for j = 1 to n            & $c_1$ & n                      \\ \hline
-			2 & r = 5  & $c_2$ & n                   \\ \hline
-			3 & while ( r \textgreater\;0) & $c_3$ & $\sum_{r=1}^{5}\;t_j$  \\ \hline
-			4 & r -= 1                    & $c_4$ & $\sum_{r=1}^{5}\;t_j$  \\ \hline
+			  &  								& cost  & times 				\\ \hline
+			1 & \lstinline|for j = 1 to n| 		& $c_1$ & n 					\\ 
+			2 & \lstinline|r = 5|				& $c_2$ & n 					\\ 
+			3 & \lstinline|while ( r > 0 )|		& $c_3$ & $\sum_{r=1}^{5}\;t_j$ \\ 
+			4 & \lstinline|r -= 1| 				& $c_4$ & $\sum_{r=1}^{5}\;t_j$ \\ \hline
 		\end{tabular}
 		\caption{A nested loop, looping n times}
 		\label{tab:simpleCode}

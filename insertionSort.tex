@@ -4,13 +4,13 @@
 		\begin{tabular}{|l|l|l|l|}
 			 \hline
 			& & cost & times                      \\ \hline
-			1 & for j = 2 to A.length & $c_1$ & n \\ \hline
-			2 & key = A[j] & $c_2$ & n - 1 \\ \hline
+			1 & \lstinline|for j = 2 to A.length| & $c_1$ & n \\ \hline
+			2 & \lstinline|key = A[j]| & $c_2$ & n - 1 \\ \hline
 			3 & ... & $0$ & n - 1 \\ \hline
-			4 & i = j - 1                    & $c_4$ & n - 1 \\ \hline
-			5 & while i $\textgreater$ 0 and A[i] $\textgreater$ key & $c_5$ &  $\sum_{j=2}^{n}\;t_j$ \\ \hline
-			6 & A[i + 1] = A[i] & $c_6$ &  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ \\ \hline
-			7 & i = i - 1 & $c_7$ &  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ \\ \hline
+			4 & \lstinline|i = j - 1|                    & $c_4$ & n - 1 \\ \hline
+			5 & \lstinline|while i > 0 and A[i] > key| & $c_5$ &  $\sum_{j=2}^{n}\;t_j$ \\ \hline
+			6 & \lstinline|A[i + 1] = A[i]| & $c_6$ &  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ \\ \hline
+			7 & \lstinline|i = i - 1| & $c_7$ &  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ \\ \hline
 		\end{tabular}
 		\caption{A nested loop, looping n times}
 		\label{tab:insertionCode}
