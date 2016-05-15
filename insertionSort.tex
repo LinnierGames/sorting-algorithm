@@ -9,9 +9,10 @@
 			4 & \quad\quad \lstinline|i = j - 1| 					& $c_4$ 		& n - 1 							\\
 			5 & \quad\quad \lstinline|while i > 0 and A[i] > key|	& $c_5$ 		&  $\sum_{j=2}^{n}\;t_j$ 			\\
 			6 & \quad\quad\quad\quad \lstinline|A[i + 1] = A[i]|	& $c_6$ 		&  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ 	\\
-			7 & \quad\quad\quad\quad \lstinline|i = i - 1| 			& $c_7$ 		&  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ 	\\ \hline
+			7 & \quad\quad\quad\quad \lstinline|i = i - 1| 			& $c_7$ 		&  $\sum_{j=2}^{n}\;(t_j\;-\;1)$ 	\\
+			8 & \quad\quad \lstinline|A[i + 1] = key| 			& $c_8$ 		&  n - 1 	\\ \hline
 		\end{tabular}
-		\caption{A nested loop, looping n times}
+		\caption{Running time for insertion sort}
 		\label{tab:insertionCode}
 	\end{table}
 \end{center}
