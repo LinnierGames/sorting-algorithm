@@ -55,18 +55,20 @@
 \begin{document}
 	
 	\maketitle
-	
 	\section*{Abstract}
 	
-	The abstract will go here and will look awesome when it renders
-	
+	In this paper we introduce algorithm efficiency with emphasis on sorting algorithms. 
+	We discuss the two broad types of sorting algorithms, comparison and non-comparison, giving examples of each. 
+	We explore a new version of merge sort written by us and do a detailed analysis of its performance compared to other mainstream algorithms. 
+	We find that sorting efficiency is highly dependent on the data being sorted and going strictly by the given runtime approximation is not enough to guarantee maximum efficiency. 
+	\newline
 	\tableofcontents
 	
 	\pagebreak
 	
 	\section{Introduction} %"Introduction - Give a short but informative introduction to your chosen topic, including the current “state of the field” as appropriateOutline what you will do in the balance of the paper (ie. Explain the goals of the paper). Indicate why this topic is exciting/useful."
 	
-	 Sorting algorithms are a fundamental type of algorithm that many other more sophisticated algorithms are built upon.
+	 Sorting algorithms are a fundamental type of algorithm that many other more sophisticated algorithms are built upon\cite[p.~6]{intro}.
 	 In the most abstract form, sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
 	 The goal of our research was to gain a better understanding of sorting algorithms in general and to learn the nuances between the different types of algorithms available.
 	 We wanted to learn what a makes a sorting algorithm efficient and what are the limitations of the efficiency.
@@ -108,7 +110,7 @@
 	Each sorting algorithm will have the same outcome, a sorted list.
 	But, each classification differ efficiency in large values.
 	
-	\subsection{Efficiency and Memory}
+	\subsection{Algorithm Efficiency}
 	
 	To solve the sorting problem, using one algorithm for all cases will not always be the most efficient.
 	In one case, algorithm A can be the least efficient but perhaps the most efficient in another case.
@@ -227,18 +229,20 @@
 	
 	\subsection{Non-Comparison Sorts}
 	
-	Non-comparison sorts, like the name implies do not rely on the comparison operators to sort.
+	Non-comparison sorts, like the name implies do not rely on the comparison operators to sort\cite[p.~191]{intro}.
 	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed.
 	Unlike the comparison sorts described in \ref{CompSort} which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
 	This sets certain restrictions on the type of data that non-comparison sorts can manage efficiently.
-	The types of restriction vary depending on the sort used, but typical restrictions include the range of values, the distribution of values\footnote{Bucket sort is an example of this which requires an even distribution of values to perform well}, and the number of digits or bits per key.
+	The types of restriction vary depending on the sort used, but typical restrictions include the range of values, the distribution of values\footnote{Bucket sort is an example of this which requires an even distribution of values to perform well}, and the number of digits or bits per key\cite{wiki-sortingAlgorithm}.
 	Common non-comparisons sorts include: radix sort, burstsort, postman sort, bucket sort, and counting sort.
 	Table~\ref{tab:nonComparisionEfficency} lists the average and worst cases for each sorting algorithm.
 	We will look at an examples of counting sort in order to gain an understanding of what makes non-comparison sorts different.
 
 	\input{non-comparisonSortTable} %rad table file
 	
-	\begin{center}
+	Now onto a short example of how counting sort works.
+	Pseudocode for the algorithm can be seen below in Snippet~\ref{snip:countsort}
+.	\begin{center}
 		\captionof{Snippet}[Counting sort]{Pseudocode for counting sort\cite[p.~195]{intro}}
 		\lstinputlisting[xleftmargin=2in]{countingsort.cpp}
 		\label{snip:countsort}
@@ -247,6 +251,8 @@
 	Counting sort has 3 for loops which make up the 3 main steps. 
 	Notice that there are no comparison operators.
 	The first loop counts the occurrences of each number, the second adds up the offset for each element caused by the numbers that precede it, and the third moves the numbers into sorted order.
+	In addition to the 3 loops, counting sort requires a temporary array to store the count of occurrences and a separate array for output.
+	Example post conditions of each for loop can be seen below in Figure~\ref{fig:countmerge}.
 	\begin{figure}[H]
 		
 		\begin{subfigure}{0.24\textwidth}
@@ -266,11 +272,11 @@
 		\end{subfigure}
 		\begin{subfigure}{0.24\textwidth}
 			\includegraphics[width=1.2in]{_0003_count3.png}
-			\caption{after 3rd loop}
+			\caption{After 3rd loop}
 			\label{fig:count4}
 		\end{subfigure}
 
-		\caption{Counting sort progression}
+		\caption{Counting sort progression. The numbers on the left hand side denotes the index. The A column is the input array, B is the temporary working array, and C is the output.}
 		\label{fig:countmerge}
 	\end{figure}
 	
@@ -279,8 +285,8 @@
 	To fulfill the requirement of demonstrating original thought we looked at creating our own sorting algorithm.
 	It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
 	So instead we took a well known sorting algorithm, merge sort, and put a twist on it.
-	The standard implementation of mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided.
-	%todo It then pieces it back together as it sorts
+	The standard implementation of merge sort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided.
+	It then merges the smaller lists back together as it sorts\cite{wiki-mergesort}.
 	A visual representation of this is shown in Figure~\ref{fig:stdmerge}.
 	
 	
@@ -345,12 +351,20 @@
 	2nd edition,
 	1994.
 	
+	
+	
 	\bibitem{wiki-callStack}
 	Wikipedia–~\url{https://en.wikipedia.org/wiki/Call_stack}
 	
 	\bibitem{wiki-recursiveFunction}
 	Wikipedia–~\url{https://en.wikipedia.org/wiki/Recursive_function}
 	
+	\bibitem{wiki-sortingAlgorithm}
+	Wikipedia: Sorting Algorithm–~\url{https://en.wikipedia.org/wiki/Sorting_algorithm}
+	
+	\bibitem{wiki-mergesort}
+	Wikipedia: Merge Sort–~\url{https://en.wikipedia.org/wiki/Merge_sort}
+		
 \end{thebibliography}
 
 \end{document}
