@@ -10,6 +10,8 @@
 \usepackage{newfloat}
 \usepackage{subcaption}
 \usepackage{amssymb}
+\usepackage{url}
+
 
 \bibliography{ref}
 
@@ -62,12 +64,10 @@
 	
 	\pagebreak
 	
-	
-	
 	\section{Introduction} %"Introduction - Give a short but informative introduction to your chosen topic, including the current “state of the field” as appropriateOutline what you will do in the balance of the paper (ie. Explain the goals of the paper). Indicate why this topic is exciting/useful."
 	
-	 Sorting algorithms are a fundamental type of algorithms that many other more sophisticated algorithms are built upon.
-	 In the most abstract form sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
+	 Sorting algorithms are a fundamental type of algorithm that many other more sophisticated algorithms are built upon.
+	 In the most abstract form, sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
 	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available
 	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency
 	 
@@ -104,7 +104,7 @@
 	
 	\section{Body}
 	
-	What you will find in this chapter are the two different classifications of sorting algorithms, $\textit{\textbf{comparision sorts}}$ and $\textit{\textbf{non-comparision sorts}}$.
+	What you will find in this chapter are the two different classifications of sorting algorithms, comparison sorts and non-comparison sorts.
 	Each sorting algorithm will have the same outcome, a sorted list.
 	But, each classification differ efficiency in large values.
 	
@@ -198,19 +198,21 @@
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	
 	%todo quicksort, heap, insertion, selection, merge, etc.
+	\paragraph{Insertion Sort}
+	
+	To some, insertion sort seems to work the best in most cases.
+	Insertion sort will iterate from the beginning to end of the list.
+	While in each iteration, another iteration steps backwards from the index of the first iteration.
+	While the second iteration steps backwards, each element is shifted towards the end of the list.
+	This inner iteration continues until the value of the first iteration is larger than the value of the second iteration or the second iteration steps beyond .
+	o
+	
 	
 	%todo insert insertion sort description
 	
 	%todo What are they, How do they work, When and when not to use them
 	
 	\input{comparisonSortTable} %rad table file
-	
-	
-	\begin{Snippet}[H]
-		\caption[Insertion Sort]{Insertion sort implementation in C++}	
-		\lstinputlisting{InsertionSort.cpp}
-		\label{snip:ins}
-	\end{Snippet}
 	
 	\subsection{Non-Comparison Sorts}
 	
@@ -295,14 +297,11 @@
 	2nd edition,
 	1994.
 	
-	\bibitem{wiki}
-	Wikipedia
-	
 	\bibitem{wiki-callStack}
-	Wikipedia–$\mbox{https://en.wikipedia.org/wiki/Call_stack}$
+	Wikipedia–~\url{https://en.wikipedia.org/wiki/Call_stack}
 	
 	\bibitem{wiki-recursiveFunction}
-	Wikipedia–$\mbox{https://en.wikipedia.org/wiki/Recursive_function}$
+	Wikipedia–~\url{https://en.wikipedia.org/wiki/Recursive_function}
 	
 \end{thebibliography}
 
