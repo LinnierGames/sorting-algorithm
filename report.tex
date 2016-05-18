@@ -79,7 +79,7 @@
 	
 	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
 	
-	Since there is coding and syntax involved in this paper, only the following is expected to be understood:\\
+	Since there is coding and syntax involved, the following is expected to be understood for this paper:\\
 	
 	``\textbf{input} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}
 	
@@ -144,12 +144,12 @@
 	\end{equation}
 	
 	Looking at this case, insertion sort was not the most efficient algorithm over merge sort.
-	If you reference figure~\ref{fig:algeff}, you can clearly see when insertion sort betters merge sort depending on the size of the list.
+	If you reference Figure~\ref{fig:algeff}, you can clearly see when insertion sort betters merge sort depending on the size of the list.
 	But why does hardware not play a large addition to completing an algorithm?
 	Well it does, just not nearly as much as how well written the code is in the algorithm.
 	That's when we need to take a look at the contents of an algorithm before we run it on a machine.
 	
-	\paragraph{Analysis of Insertion Sort}
+	\subsubsection{Creating the Running Characteristic}
 	
 	The notation we use to describe the running time of an algorithm is defined in terms of a function whose domains is the set of natural numbers, $\mathbb{N}$~\cite[p.~43]{intro}.
 	For insertion sort, the worst-case is $n^2$, this occurs when the list is in reverse order.
@@ -169,13 +169,13 @@
 	T(n) = c_1n + c_2n + c_3\sum_{r=1}^{5} + c_4\sum_{r=1}^{5}
 	\label{eqa:simpleLoopRunningTime}
 	\end{equation}
-	Equation~\ref{eqa:simpleLoopRunningTime} is the characteristic formula for the algorithm shown in table~\ref{tab:simpleCode}.
+	Equation~\ref{eqa:simpleLoopRunningTime} is the characteristic formula for the algorithm shown in Table~\ref{tab:simpleCode}.
 	For this function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
 	
-	\paragraph{Describing Insertion Sort}
-	Coming back to insertion sort, before we dive into the same process done in table~\ref{tab:simpleCode} to get equation~\ref{eqa:simpleLoopRunningTime}, let us find out how insertion sort behaves.
+	\paragraph{Analysis of Insertion Sort}
+	Coming back to insertion sort, before we dive into the same process done in Table~\ref{tab:simpleCode} to get Equation~\ref{eqa:simpleLoopRunningTime}, let us find out how insertion sort behaves.
 	Insertion sort will iterate from the beginning to end of the list.
-	While in each iteration, a $key$ is assigned and another iteration steps backwards from the index of the first iteration shown in table~\ref{tab:insertionCode}.
+	While in each iteration, a $key$ is assigned and another iteration steps backwards from the index of the first iteration shown in Table~\ref{tab:insertionCode}.
 	While the second iteration steps backwards, each element is shifted towards the end of the list lines 6 and 7.
 	This inner iteration continues until the value of the first iteration is larger than the value of the second iteration or the second iteration steps beyond.
 	The last step of the first iteration is to $\textit{insert}$ the $key$ at the index of the second iteration.
@@ -194,25 +194,76 @@
 	\end{equation}
 	
 	For the best case to happen the list would have already been in the correct order.
-	Line 5 in table~\ref{tab:insertionCode} would never enter the while-loop.
+	Line 5 in Table~\ref{tab:insertionCode} would never enter the while-loop.
 	Thus, the summation of $t_j$ is equal to 1.
-	And we can write the characteristic for the best case as equation~\ref{eqa:insertionSortBestRunningTime}.
+	And we can write the characteristic for the best case as Equation~\ref{eqa:insertionSortBestRunningTime}.
 	
 	\begin{equation}
 	T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
 	\label{eqa:insertionSortBestRunningTime}
 	\end{equation}
-	This equation which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
+	This equation which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in Table~\ref{tab:insertionCode}.
 	
-	Looking at both equation~\ref{eqa:insertionSortBestRunningTime} and equation~\ref{eqa:insertionSortWorstRunningTime}, one is linear but the other is exponential.
+	Looking at both Equation~\ref{eqa:insertionSortBestRunningTime} and Equation~\ref{eqa:insertionSortWorstRunningTime}, one is linear but the other is exponential.
 	For some cases, because insertion sort may be exponential, this sorting algorithm is not the best case every time due to this reason.
 	
 	\subsection{Comparison Sorts}
 	\label{CompSort}
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	This includes quicksort, merge sort, heapsort, insertion sort, introsort, selection sort, bubble sort, and many more all using a single comparison operator.
+	Table~\ref{tab:comparisionEfficency} displays the average and worst cases for each sorting algorithm.
+	Some sorting algorithms will use more than one operator to arrange elements in a list.
 	
-	%todo What are they, How do they work, When and when not to use them
+	The best way to understand a comparison sort is to quickly look at bubble sort.
+	Bubble sort iterates throughout the list until no arranging is made in a single iteration.
+	During the iteration of bubble sort, only two elements are compared at a time\footnote{Bubble sort can quickly sort a list of two elements. Iterate once, swap, then iterate again to check if the list is sorted.}.
+	First, start from the beginning of the list checking if the element is smaller than the element after it.
+	In step~\ref{fig:bubblecount3}, the elements are swapped.
+	Iterate again until the end of the list then check again.
+	If no swaps were made, the list is sorted.
+	
+	
+	\begin{figure}[H]
+		
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-1.png} 
+			\caption{Step 1}
+			\label{fig:bubblecount1}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-2.png}
+			\caption{Step 2}
+			\label{fig:bubblecount2}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-3.png}
+			\caption{Step 3}
+			\label{fig:bubblecount3}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-4.png}
+			\caption{Step 4}
+			\label{fig:bubblecount4}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-5.png}
+			\caption{Step 5}
+			\label{fig:bubblecount5}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-6.png}
+			\caption{Step 6}
+			\label{fig:bubblecount6}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{bubble-7.png}
+			\caption{Step 7}
+			\label{fig:bubblecount7}
+		\end{subfigure}
+		
+		\caption{Counting sort progression. The numbers on the left hand side denotes the index. The A column is the input array, B is the temporary working array, and C is the output.}
+		\label{fig:bubleSorting}
+	\end{figure}
 	
 	
 	\input{comparisonSortTable} %rad table file
@@ -225,7 +276,7 @@
 	This sets certain restrictions on the type of data that non-comparison sorts can manage efficiently.
 	The types of restriction vary depending on the sort used, but typical restrictions include the range of values, the distribution of values\footnote{Bucket sort is an example of this which requires an even distribution of values to perform well}, and the number of digits or bits per key\cite{wiki-sortingAlgorithm}.
 	Common non-comparisons sorts include: radix sort, burstsort, postman sort, bucket sort, and counting sort.
-	Table~\ref{tab:nonComparisionEfficency} lists the average and worst cases for each sorting algorithm.
+	Table~\ref{tab:nonComparisionEfficency} lists the average and worst cases for each non-comparison sorting algorithm.
 	We will look at an examples of counting sort in order to gain an understanding of what makes non-comparison sorts different.
 
 	\input{non-comparisonSortTable} %rad table file
@@ -333,7 +384,15 @@
 
 Sorting algorithms is an extensive subject and we were not able to cover it in its entirety, but compared to what students are exposed to in CS10 and CS11, this paper takes a huge step forward in explaining the intricacies of sorting algorithms.
 For students moving along in the computer science, I hope they realize the importance in strategically choosing an algorithm for a given application. 
-With sorting algorithms being a fundamental building block for countless other algorithms, choosing a strong foundation 
+This is especially important for sorting algorithms since they are a fundamental building block for countless other algorithms. 
+
+As a final review, we analyzed algorithm efficiency in two different manners. 
+First we took a mathematical approach by assigning an execution time to each line in the algorithm and then adding all the terms together to come up with a characteristic equation. 
+There are limitations to this method because many approximations must be made. 
+The second way we analyzed efficiency was to run to actual code on a machine. 
+To do this we had each algorithm loaded in a program and measure the total runtime in microseconds for a range of lists sizes. 
+The limitation of this method is that it depends on the hardware.
+The is no perfect way to measure algorithm efficiency since it very dependent on the application it is being used with.
 
 
 
@@ -351,8 +410,6 @@ With sorting algorithms being a fundamental building block for countless other a
 	Discrete Mathematics with Applications, Fourth Edition,
 	Susanna S. EPP,
 	2010
-	%todo cite at least once	
-	
 	
 	\bibitem{wiki-callStack}
 	Wikipedia: Call stack \url{https://en.wikipedia.org/wiki/Call_stack}
