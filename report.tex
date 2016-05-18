@@ -64,153 +64,173 @@
 	
 	
 	
-	\section{Introduction} %"Introduction - Give a short but informative introduction to your chosen topic, including the current “state of the field” as appropriate. Outline what you will do in the balance of the paper (ie. Explain the goals of the paper). Indicate why this topic is exciting/useful."
+	\section{Introduction} %"Introduction - Give a short but informative introduction to your chosen topic, including the current “state of the field” as appropriateOutline what you will do in the balance of the paper (ie. Explain the goals of the paper). Indicate why this topic is exciting/useful."
 	
 	 Sorting algorithms are a fundamental type of algorithms that many other more sophisticated algorithms are built upon.
-	 In the most abstract form sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be (typically numeric or alphabetic order is used).
-	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available. 
-	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency. 
+	 In the most abstract form sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
+	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available
+	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency
 	 
-	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison. 
-	 Next it will examine sorting efficiencies, different applications of sorting algorithms, and methods for choosing the appropriate algorithm for a given application. 
-	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form. 
+	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison
+	 Next it will examine sorting efficiencies, different applications of sorting algorithms.
+	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form.
 	
 	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
 	
-	Since there is coding and syntax involved, only 
-	``\underline{input} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}\newline
-	``An algorithm is said to be \underline{correct} if, for every input instance, it halts with the correct output. We say that a correct algorithm \underline{solves} the given computational problem"(Introduction to Algorithms)\cite[p.~6]{intro}\newline
-	``The number that we wish to be sort are also known as the \underline{keys}"(Introduction to Algorithms)\cite[p.~16]{intro}\newline
-	``An \underline{algorithm} is a procedure or formula for solving a problem."\cite{wiki}\newline
-	``A \underline{compiler} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\cite{wiki}\newline
-	``The \underline{call stack} is a stack data structure that stores information about the active subroutines of a computer program"\cite{wiki} Whenever a function calls a new function, this adds to the stack.\newline
-	``A \underline{recursion function} (DEF) is a function which either calls itself"\cite{wiki} When a function calls itself, there needs to be a condition for the function to stop itself; end the recursion. This is called \underline{end case}. The end case does not contain a function call to itself thus stopping the recursion.\\ \newline
-	will be used to help understand this paper.
-	Some footnotes and in line definitions may appear.
+	Since there is coding and syntax involved in this paper, only the following is expected to be understood:\\
+	
+	``\textbf{\underline{input}} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}
+	
+	``An algorithm is said to be \textbf{\underline{correct}} if, for every input instance, it halts with the correct output
+	We say that a correct algorithm \textbf{\underline{solves}} the given computational problem"\cite[p.~6]{intro}
+	
+	``The number that we wish to be sort are also known as the \textbf{\underline{keys}}"\cite[p.~16]{intro}
+	
+	``An \textbf{\underline{algorithm}} is a procedure or formula for solving a problem."\cite{intro}
+	
+	``A \textbf{\underline{compiler}} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\cite{intro}
+	
+	``The \textbf{\underline{call stack}} is a stack data structure that stores information about the active subroutines of a computer program"\cite{wiki-callStack} Whenever a function calls a new function, this adds to the stack.
+	
+	``A \textbf{\underline{recursion function}} (DEF) is a function which either calls itself"\cite{wiki-recursiveFunction} When a function calls itself, there needs to be a condition for the function to stop itself, end the recursion.
+	This is called \textbf{\underline{end case}}.
+	The end case does not contain a function call to itself thus stopping the recursion.
+	
+	``The \textbf{\underline{input size}} is the value, or number, to be sorted in a sorting algorithm"\cite{intro}
+	
+	``The \textbf{\underline{running time}} of an algorithm is the number of instructions."\cite{intro}\\
+	
+	Some syntax or vocabulary will be defined in-line to help understand each section of the paper.
 	
 	\section{Body}
 	
-	What you will find in this chapter are the two different classifications of sorting algorithms, $\textit(\textbf(comparision sorts))$ and $\textit(\textbf(non-comparision sorts))$. 
-	
-	\subsection{Comparison Sorts}
-	\label{CompSort}
-	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
-	quicksort, heap, insertion, selection, merge, etc.
-	
-	insert insertion sort description
-	
-	What are they
-	How do they work
-	When and when not to use them
-	
-	\input{comparisonSortTable} %rad table file
-	
-	
-	\begin{Snippet}[h]
-		\caption[Insertion Sort]{Insertion Sort implementation in C++}	
-		\lstinputlisting{InsertionSort.cpp}
-		\label{snip:ins}
-	\end{Snippet}
-	
-	
-	\subsection{Non-Comparison Sorts}
-	
-	Non-comparison sorts, like the name implies do not rely on the comparison operators $<$,$>$,$\le$,$\ge$ to sort.
-	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed. 
-	Unlike the comparison sorts described in \ref{CompSort} which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
-	This sets certain restrictions on the type of data that non-comparison sorts can manage.
-	Common non-comparisons sorts include: Radix sort, Burstsort, Postman sort, Bucket sort, and Counting sort.
-	We will look at examples of the latter two, Bucket sort and Counting sort  in order to gain an understanding of what makes non-comparison sorts different.
-
-	\input{non-comparisonSortTable} %rad table file
+	What you will find in this chapter are the two different classifications of sorting algorithms, $\textit{\textbf{comparision sorts}}$ and $\textit{\textbf{non-comparision sorts}}$.
+	Each sorting algorithm will have the same outcome, a sorted list.
+	But, each classification differ efficiency in large values.
 	
 	\subsection{Efficiency and Memory}
 	
-	To solve the same sorting problem, in one case algorithm A is the most efficient.
-	But in a different case, algorithm A can be the least efficient thus, a different algorithm would better in this case.
+	To solve the sorting problem, using one algorithm for all cases will not always be the most efficient.
+	In one case, algorithm A can be the least efficient but perhaps the most efficient in another case.
+	Let us look at two different sorting algorithms insertion sort and merge sort.
+	Each are comparison sorts and have different efficiencies.
 	
-	\subsubsection{Insertion Sort Vs. Merge Sort}
+	\paragraph{Insertion Sort Vs. Merge Sort}
 	
-	Let’s write Insertion sort as $c_1 \cdot\,n^2$ and Merge sort as $c_2 \cdot\,n\,\log_2{n}$, where $c_1$ and $c_2$ are constants dependent on how well the algorithm is implemented and how efficient the software and compiler are.
-	When we compare the two, we see that Insertion sort has an extra factor of $n$, while Merge sort has a factor of $\log_2{n}$ which is far smaller for large $n$.
-	Let’s take a deeper look.
-	Running these two algorithms, Insertion sort and Merge sort, on two different machines; A and B respectively. 
+	Insertion sort takes each element in the list and places them in the correct order.
+	While merge sort breaks the list to single sublists then merges each sublist in the correct order.
+	Let us write insertion sort as $c_1 \cdot\,n^2$ and merge sort as $c_2 \cdot\,n\,\log_2{n}$, where $c_1$ and $c_2$ are constants dependent on how well the algorithm is implemented and how efficient the software and compiler are.
+	When we compare the two, we see that insertion sort has a factor of $n$, while merge sort has a factor of $\log_2{n}$ which is far smaller for large values of $n$.
+	Let us take a deeper look by running these two algorithms on different machines, machine A and B.
 	Each machine is sorting an array of 10 million numbers.
 	Machine A executes 10 billion instructions per second and machine B executes only 10 million per second.
 	Thus, machine A is a thousand times faster than machine B.
-	Insertion sort on machine A is written in an efficient manner resulting in a value of 3 for $c_1$. Thus it requires  $3n^2$ instructions to sort n numbers.
-	For machine B, the algorithm Merge sort is implemented poorly causing $100 n\log_2{n}$ instructions to sort n numbers. 
-
-	Machine A takes:
+	Insertion sort on machine A is written in an efficient manner resulting in a value of 3 for $c_1$.
+	Thus, it requires  $3n^2$ instructions to sort $n$ numbers.
+	For machine B, the algorithm merge sort is implemented poorly causing $c_2$ is 100.
+	Merge sort is written as $100 n\log_2{n}$ instructions to sort $n$ numbers.
+	By using these parameters, the runtime can be calculated as followed:
 	
+	Machine A takes:
 	\begin{equation}
-	\frac{3\cdot(10^7)^2 \;instructions}{10^{10} \;instructions/\!second}=30000\mbox{ seconds (more than 8 hours)}
+	\frac{3\cdot(10^7)^2 \;instructions}{10^{10} \;instructions/\!second}=30,000\mbox{ seconds (more than 8 hours)}
 	\end{equation}
 	
 	And machine B takes:
 	\begin{equation}	
-	\frac{100\cdot 10^7\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx2300\mbox{ seconds (just under 40 minutes)}
+	\frac{100\cdot 10^7\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx2,300\mbox{ seconds (just under 40 minutes)}
 	\end{equation}
 	
-	Looking at this one case, having one algorithm isn't going to be the better one for all cases. Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be. Why? That's when we need to side 
-
-
-	%\subsubsection{Big O Notation}
+	Looking at this one case, having one algorithm isn't going to be the better one for all cases.
+	Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be.
+	Why? That's when we need to side 
 	
-	An algorithm can take at most seconds to finish executing.
-	Some can take hours or even years to finish.
-	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
+	An algorithm's runtime can vary greatly from nanoseconds, to minutes, or even to years.	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
 	But before we understand Big O notation, we’ll look into analyzing insertion sort.
-
-
+	
+	
 	\paragraph{Analysis of Insertion Sort}
 	
-	The notations we use to describe the asymptotic running time of an algorithm are defined in terms of functions whose domains are the set of natural numbers, $\mathbb{N}$ \{ 1, 2 , 3 .. \}~\cite[p.~43]{intro}
-	This is called asymptotic notation.
-	For insertion sort, the worst-case is $n^2$ depending on how unsorted the input is.
-	The larger the list, the longer it'll take. Thus, we need to define a few things to characterize insertion sort; running time and size of input.
-	In some cases, the $\textit{\textbf{input size}}$ can go stretch from number of items in a list to number of bits after adding two number. 
-	For insertion sort, it’s going to be the number of elements to be sorted.
-	This does not depend on how unsorted the arrangement of number, just the size.
-	The $\textit{\textbf{running time}}$ is going to be the number of steps, or instructions.
+	The notation we use to describe the running time of an algorithm is defined in terms of a function whose domains is the set of natural numbers ($\mathbb{N}$ = \{ 1, 2 , 3 .. \})~\cite[p.~43]{intro}.
+	For insertion sort, the worst-case is $n^2$, this occurs when the list is in reverse order.
+	The larger a list is, the longer it'll take.
+	Thus, we need to define a few things to characterize insertion sort, running time and size of input.
+	For a sorting algorithm, the input size is the number of elements to be sorted in the list.
+	This does not depend on how unsorted the arrangement of number, just the size of the list.
+	The running time is going to be the number of steps, or instructions.
 	Now, each line of code can't always take the same amount of $\textit{time}$ to execute.
 	An assignment will take a different amount of $\textit{time}$ than an $\textit{if-else}$ statement.
 	
-	To better understand, we’ll look at an example of a simple loop.
+	To better understand, we will look at an example of a simple loop.
 	Each line of code will take $c_i$ long to execute; $i$ is denoted for each line of code.
 	\input{sampleLoop}
-	Thus, the $\textit{time}$ it takes to execute this loop is
+	Thus, by adding the \textbf{times} column together, the $\textit{time}$ it takes to execute this loop is given by the equation below.
 	\begin{equation}
-		T(n) = c_1n + c_2n + c_3\sum_{r=1}^{5} + c_4\sum_{r=1}^{5}
+	T(n) = c_1n + c_2n + c_3\sum_{r=1}^{5} + c_4\sum_{r=1}^{5}
+	\label{eqa:simpleLoopRunningTime}
 	\end{equation}
-	which is the characteristic formula for this algorithm.
-	For this linear function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
+	Equation~\ref{eqa:simpleLoopRunningTime} is the characteristic formula for the algorithm shown in table~\ref{tab:simpleCode}.
+	For this function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
 	
-	Coming back to insertion sort, the characteristic for the best case of insertion sort is
-	\begin{equation}
-		T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
-	\end{equation}
-	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown below
+	Coming back to insertion sort, the same process can be repeated from what was done before.
+	The table shown below is the running time, as well as the pseudocode, for insertion sort.
 	
 	\input{insertionSort.tex}
 	
-	If the worst case was sorted in insertion sort the characteristic would be $an^2$ + $bn$ + $c$, where a, b, and c were constants as shown below
+	Now, the characteristic for the best case of insertion sort is
+	\begin{equation}
+	T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
+	\label{eqa:insertionSortBestRunningTime}
+	\end{equation}
+	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
+	
+	If the worst case was sorted using insertion sort, the characteristic would be $an^2$ + $bn$ + $c$, where a, b, and c were constants as shown below
 	\begin{equation}
 	T(n) = (\frac{c_5}{2} + \frac{c_6}{2} + \frac{c_7}{2})n^2 + (c_1 + c_2 + c_4 + \frac{c_5}{2} - \frac{c_6}{2} - \frac{c_7}{2} + c_8)n - (c_2 + c_4 + c_5 + c_8)
+	\label{eqa:insertionSortWorstRunningTime}
 	\end{equation}
 	
-	\paragraph{What is Big O Notation}
+	Looking at both equation~\ref{eqa:insertionSortBestRunningTime} and equation~\ref{eqa:insertionSortWorstRunningTime}, one is linear but the other is exponential.
+	For some cases, insertion sort will be the most efficient but not for every case.
 	
-	def 
+	\subsection{Comparison Sorts}
+	\label{CompSort}
+	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
+	
+	%todo quicksort, heap, insertion, selection, merge, etc.
+	
+	%todo insert insertion sort description
+	
+	%todo What are they, How do they work, When and when not to use them
+	
+	\input{comparisonSortTable} %rad table file
+	
+	
+	\begin{Snippet}[H]
+		\caption[Insertion Sort]{Insertion sort implementation in C++}	
+		\lstinputlisting{InsertionSort.cpp}
+		\label{snip:ins}
+	\end{Snippet}
+	
+	\subsection{Non-Comparison Sorts}
+	
+	Non-comparison sorts, like the name implies do not rely on the comparison operators to sort.
+	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed.
+	Unlike the comparison sorts described in \ref{CompSort} which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
+	This sets certain restrictions on the type of data that non-comparison sorts can manage.
+	Common non-comparisons sorts include: radix sort, burstsort, postman sort, bucket sort, and counting sort.
+	In table~\ref{tab:nonComparisionEfficency} are listed the average and worst cases for each sorting algorithm.
+	We will look at an examples of counting sort  in order to gain an understanding of what makes non-comparison sorts different.
+
+	\input{non-comparisonSortTable} %rad table file
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
-	
 	To fulfill the requirement of demonstrating original thought we looked at creating our own sorting algorithm.
-	 It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
-	So instead we took an already well known algorithm and put a twist on it. 
-	The standard implementation of Mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided. 
-	It then pieces it back together as it sorts. 
+	It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
+	So instead we took a well known sorting algorithm, merge sort, and put a twist on it
+	The standard implementation of mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided
+	%todo It then pieces it back together as it sorts
 	A visual representation of this is shown in Figure~\ref{fig:stdmerge}.
 	
 	
@@ -227,32 +247,33 @@
 		\label{fig:newmerge}
 	\end{subfigure}
 	
-	\caption{Algorithm flow of the standard Merge sort and our own implementation}
+	\caption{Algorithm flow of the standard merge sort and our own implementation}
 	\label{fig:bothmerge}
 \end{figure}
 	
-	Now onto our variant. 
-	We decided to forgo the recursion and keep everything to one function call. 
-	The reasoning for this is that recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}. 
-	By skipping the recursion step it allows the algorithm to start immediately comparing pairs of elements. 
+	Now onto our variant
+	We decided to forgo the recursion and keep everything to one function call
+	%todo The reasoning for this is, recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}
+	By skipping the recursion step it allows the algorithm to first start comparing pairs of elements
 	Visually it is represented by Figure~\ref{fig:newmerge}.
-	Do not let the Figure~\ref{fig:newmerge} fool you however, just because it looks like half the number of steps does not mean it is twice as fast.
+	Do not let the Figure~\ref{fig:newmerge} fool you however.
+	Just because it looks like half the number of steps does not mean it is twice as fast.
 	Before we go into the efficiency here is algorithm in its entirety is shown below in Snippet~\ref{snip:newmerge}.
 	
 	\begin{center}
-		\captionof{Snippet}[New Mergesort]{Our own Merge sort implementation that doesn't use recursion. Written in C++}
+		\captionof{Snippet}[New Mergesort]{Our own merge sort implementation that doesn't use recursion. Written in C++}
 		\lstinputlisting{mergeSort2.cpp}
 		\label{snip:newmerge}
 	\end{center}
 
-	Just knowing that an algorithm works is not enough\footnote{We do not prove that the new merge sort works, you must take our word that it does.}; an analysis of the runtime is also needed to ensure the algorithm performs as needed. 
-	The new Merge sort algorithm was compared to a standard implementation of Merge sort, Introsort, Quicksort, and Insertion sort. 
-	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements. 
-	To our surprise the new Merge sort outperformed many of the other algorithms. 
-	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new Merge sort performed 13X faster than the built in Introsort and 3.6X faster than the standard merge sort. 
-	The efficiency of Insertion sort on small list sizes can be seen in the graph as well.
-	Quicksort is consistently faster than the new Merge sort, with Quicksort averaging 80\% of the runtime over the entire sample range.
-	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead. 
+	Just knowing that an algorithm works is not enough\footnote{We do not prove that the new merge sort works, you must take our word that it does.}; an analysis of the runtime is also needed to ensure the algorithm performs as needed
+	The new merge sort algorithm was compared to a standard implementation of merge sort, introsort, quicksort, and insertion sort
+	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements
+	To our surprise the new merge sort outperformed many of the other algorithms
+	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new merge sort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort
+	The efficiency of insertion sort on small list sizes can be seen in the graph as well.
+	Quicksort is consistently faster than the new merge sort, with quicksort averaging 80\% of the runtime over the entire sample range.
+	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead.
 	Each algorithm in Figure~\ref{fig:algeff} with the exception of insertion sort has an average runtime of $\Theta( n \cdot log (n) )$, yet it is clear from the plot that $\Theta()$ and $O()$ are not a precise enough descriptors when looking for the absolute fastest algorithm.
 
 	\begin{figure}[H]
@@ -266,7 +287,6 @@
 
 \pagebreak
 
-
 \begin{thebibliography}{9}
 	\bibitem{intro}
 	Introduction to Algorithms, Third Edition,
@@ -274,13 +294,17 @@
 	Addison Wesley, Massachusetts,
 	2nd edition,
 	1994.
+	
 	\bibitem{wiki}
 	Wikipedia
 	
+	\bibitem{wiki-callStack}
+	Wikipedia–$\mbox{https://en.wikipedia.org/wiki/Call_stack}$
+	
+	\bibitem{wiki-recursiveFunction}
+	Wikipedia–$\mbox{https://en.wikipedia.org/wiki/Recursive_function}$
+	
 \end{thebibliography}
-
-
-
 
 \end{document}
 
