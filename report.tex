@@ -68,10 +68,10 @@
 	
 	 Sorting algorithms are a fundamental type of algorithm that many other more sophisticated algorithms are built upon.
 	 In the most abstract form, sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
-	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available
-	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency
+	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available.
+	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency.
 	 
-	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison
+	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison.
 	 Next it will examine sorting efficiencies, different applications of sorting algorithms.
 	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form.
 	
@@ -142,10 +142,11 @@
 	\end{equation}
 	
 	Looking at this one case, having one algorithm isn't going to be the better one for all cases.
-	Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be.
+	%todo Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be.
 	Why? That's when we need to side 
 	
-	An algorithm's runtime can vary greatly from nanoseconds, to minutes, or even to years.	Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
+	An algorithm's runtime can vary greatly from nanoseconds, to minutes, or even to years.
+	%todo Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
 	But before we understand Big O notation, we’ll look into analyzing insertion sort.
 	
 	
@@ -172,23 +173,41 @@
 	Equation~\ref{eqa:simpleLoopRunningTime} is the characteristic formula for the algorithm shown in table~\ref{tab:simpleCode}.
 	For this function it has a factor of $n$ that can be factored to T(n) = ($c_1$ + $c_2$)n + ($c_3$ + $c_4$)$\sum_{r=1}^{5}$, or T(n) = an + b.
 	
-	Coming back to insertion sort, the same process can be repeated from what was done before.
-	The table shown below is the running time, as well as the pseudocode, for insertion sort.
+	\paragraph{Describing Insertion Sort}
+	Coming back to insertion sort, before we dive into the same process done in table~\ref{tab:simpleCode} to get equation~\ref{eqa:simpleLoopRunningTime}, let us find out how insertion sort behaves.
+	Insertion sort will iterate from the beginning to end of the list.
+	While in each iteration, a $key$ is assigned and another iteration steps backwards from the index of the first iteration shown in table~\ref{tab:insertionCode}.
+	While the second iteration steps backwards, each element is shifted towards the end of the list lines 6 and 7.
+	This inner iteration continues until the value of the first iteration is larger than the value of the second iteration or the second iteration steps beyond.
+	The last step of the first iteration is to $\textit{insert}$ the $key$ at the index of the second iteration.
+	Thus, every element will be inserted in the correct order once the first iteration completes across the size of the list being sorted.
+	Since insertion sort contains a loop within a loop, the running time can be a second degree thus taking much longer.
 	
-	\input{insertionSort.tex}
+	Now, creating a running equation, we have to assign each line of code with $c_i$.
+	The table shown below is the running time with the pseudocode for insertion sort.
 	
-	Now, the characteristic for the best case of insertion sort is
-	\begin{equation}
-	T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
-	\label{eqa:insertionSortBestRunningTime}
-	\end{equation}
-	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
+	\input{insertionSort-runningtime.tex}
 	
+	%todo wrost case first then best case% Now, the characteristic for the best case of insertion sort is
 	If the worst case was sorted using insertion sort, the characteristic would be $an^2$ + $bn$ + $c$, where a, b, and c were constants as shown below
 	\begin{equation}
 	T(n) = (\frac{c_5}{2} + \frac{c_6}{2} + \frac{c_7}{2})n^2 + (c_1 + c_2 + c_4 + \frac{c_5}{2} - \frac{c_6}{2} - \frac{c_7}{2} + c_8)n - (c_2 + c_4 + c_5 + c_8)
 	\label{eqa:insertionSortWorstRunningTime}
 	\end{equation}
+	
+	For the best case to happen the list would have already been in the correct order.
+	Line 5 in table~\ref{tab:insertionCode} would never enter the while-loop.
+	Thus, the summation of $t_j$ is equal to 1.
+	And we can write the characteristic for the best case as equation~\ref{eqa:insertionSortBestRunningTime}.
+	
+	\begin{equation}
+	T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
+	\label{eqa:insertionSortBestRunningTime}
+	\end{equation}
+	Equation~\ref{eqa:insertionSortBestRunningTime}.
+	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
+	
+	
 	
 	Looking at both equation~\ref{eqa:insertionSortBestRunningTime} and equation~\ref{eqa:insertionSortWorstRunningTime}, one is linear but the other is exponential.
 	For some cases, insertion sort will be the most efficient but not for every case.
@@ -197,18 +216,10 @@
 	\label{CompSort}
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	
-	%todo quicksort, heap, insertion, selection, merge, etc.
 	\paragraph{Insertion Sort}
 	
-	To some, insertion sort seems to work the best in most cases.
-	Insertion sort will iterate from the beginning to end of the list.
-	While in each iteration, another iteration steps backwards from the index of the first iteration.
-	While the second iteration steps backwards, each element is shifted towards the end of the list.
-	This inner iteration continues until the value of the first iteration is larger than the value of the second iteration or the second iteration steps beyond .
-	o
 	
-	
-	%todo insert insertion sort description
+	\paragraph{title}
 	
 	%todo What are they, How do they work, When and when not to use them
 	
@@ -230,8 +241,8 @@
 	
 	To fulfill the requirement of demonstrating original thought we looked at creating our own sorting algorithm.
 	It proved difficult to come with a new sorting idea with so many existing sorting algorithm already on our mind.
-	So instead we took a well known sorting algorithm, merge sort, and put a twist on it
-	The standard implementation of mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided
+	So instead we took a well known sorting algorithm, merge sort, and put a twist on it.
+	The standard implementation of mergesort uses a recursive flow; each iteration calls the sort on itself and splits the list in two until it is completely divided.
 	%todo It then pieces it back together as it sorts
 	A visual representation of this is shown in Figure~\ref{fig:stdmerge}.
 	
@@ -253,10 +264,10 @@
 	\label{fig:bothmerge}
 \end{figure}
 	
-	Now onto our variant
-	We decided to forgo the recursion and keep everything to one function call
+	Now onto our variant.
+	We decided to forgo the recursion and keep everything to one function call.
 	%todo The reasoning for this is, recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}
-	By skipping the recursion step it allows the algorithm to first start comparing pairs of elements
+	By skipping the recursion step it allows the algorithm to first start comparing pairs of elements.
 	Visually it is represented by Figure~\ref{fig:newmerge}.
 	Do not let the Figure~\ref{fig:newmerge} fool you however.
 	Just because it looks like half the number of steps does not mean it is twice as fast.
@@ -268,11 +279,11 @@
 		\label{snip:newmerge}
 	\end{center}
 
-	Just knowing that an algorithm works is not enough\footnote{We do not prove that the new merge sort works, you must take our word that it does.}; an analysis of the runtime is also needed to ensure the algorithm performs as needed
-	The new merge sort algorithm was compared to a standard implementation of merge sort, introsort, quicksort, and insertion sort
-	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements
-	To our surprise the new merge sort outperformed many of the other algorithms
-	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new merge sort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort
+	Just knowing that an algorithm works is not enough\footnote{We do not prove that the new merge sort works, you must take our word that it does.}; an analysis of the runtime is also needed to ensure the algorithm performs as needed.
+	The new merge sort algorithm was compared to a standard implementation of merge sort, introsort, quicksort, and insertion sort.
+	To perform the tests, each algorithm was given the same randomly generated list starting with a size of 3 and doubling each time up to 12,582,912 elements.
+	To our surprise the new merge sort outperformed many of the other algorithms.
+	As shown in Figure~\ref{fig:algeff}, for lists with over 100 elements and up to the test limit the new merge sort performed 13X faster than the built in introsort and 3.6X faster than the standard merge sort.
 	The efficiency of insertion sort on small list sizes can be seen in the graph as well.
 	Quicksort is consistently faster than the new merge sort, with quicksort averaging 80\% of the runtime over the entire sample range.
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead.
