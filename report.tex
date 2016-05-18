@@ -81,26 +81,26 @@
 	
 	Since there is coding and syntax involved in this paper, only the following is expected to be understood:\\
 	
-	``\textbf{\underline{input}} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}
+	``\textbf{input} sequence is called an instance of the sorting problem"\cite[p.~5]{intro}
 	
-	``An algorithm is said to be \textbf{\underline{correct}} if, for every input instance, it halts with the correct output
-	We say that a correct algorithm \textbf{\underline{solves}} the given computational problem"\cite[p.~6]{intro}
+	``An algorithm is said to be \textbf{correct} if, for every input instance, it halts with the correct output
+	We say that a correct algorithm \textbf{solves} the given computational problem"\cite[p.~6]{intro}
 	
-	``The number that we wish to be sort are also known as the \textbf{\underline{keys}}"\cite[p.~16]{intro}
+	``The number that we wish to be sort are also known as the \textbf{keys}"\cite[p.~16]{intro}
 	
-	``An \textbf{\underline{algorithm}} is a procedure or formula for solving a problem."\cite{intro}
+	``An \textbf{algorithm} is a procedure or formula for solving a problem."\cite{intro}
 	
-	``A \textbf{\underline{compiler}} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\cite{intro}
+	``A \textbf{compiler} is a computer program ... that transforms source code written in a programming language ... into another computer language …, with the latter often having a binary form known as object code."\cite{intro}
 	
-	``The \textbf{\underline{call stack}} is a stack data structure that stores information about the active subroutines of a computer program"\cite{wiki-callStack} Whenever a function calls a new function, this adds to the stack.
+	``The \textbf{call stack} is a stack data structure that stores information about the active subroutines of a computer program"\cite{wiki-callStack} Whenever a function calls a new function, this adds to the stack.
 	
-	``A \textbf{\underline{recursion function}} (DEF) is a function which either calls itself"\cite{wiki-recursiveFunction} When a function calls itself, there needs to be a condition for the function to stop itself, end the recursion.
-	This is called \textbf{\underline{end case}}.
+	``A \textbf{recursion function} (DEF) is a function which either calls itself"\cite{wiki-recursiveFunction} When a function calls itself, there needs to be a condition for the function to stop itself, end the recursion.
+	This is called \textbf{end case}.
 	The end case does not contain a function call to itself thus stopping the recursion.
 	
-	``The \textbf{\underline{input size}} is the value, or number, to be sorted in a sorting algorithm"\cite{intro}
+	``The \textbf{input size} is the value, or number, to be sorted in a sorting algorithm"\cite{intro}
 	
-	``The \textbf{\underline{running time}} of an algorithm is the number of instructions."\cite{intro}\\
+	``The \textbf{running time} of an algorithm is the number of instructions."\cite{intro}\\
 	
 	Some syntax or vocabulary will be defined in-line to help understand each section of the paper.
 	
@@ -113,13 +113,13 @@
 	\subsection{Algorithm Efficiency}
 	
 	To solve the sorting problem, using one algorithm for all cases will not always be the most efficient.
-	In one case, algorithm A can be the least efficient but perhaps the most efficient in another case.
+	In one case, algorithm A may be the least efficient but perhaps the most efficient in another case.
 	Let us look at two different sorting algorithms insertion sort and merge sort.
 	Each are comparison sorts and have different efficiencies.
 	
 	\paragraph{Insertion Sort Vs. Merge Sort}
 	
-	Insertion sort takes each element in the list and places them in the correct order.
+	Insertion sort takes each element in the list and places them in the correct order one by one.
 	While merge sort breaks the list to single sublists then merges each sublist in the correct order.
 	Let us write insertion sort as $c_1 \cdot\,n^2$ and merge sort as $c_2 \cdot\,n\,\log_2{n}$, where $c_1$ and $c_2$ are constants dependent on how well the algorithm is implemented and how efficient the software and compiler are.
 	When we compare the two, we see that insertion sort has a factor of $n$, while merge sort has a factor of $\log_2{n}$ which is far smaller for large values of $n$.
@@ -143,18 +143,15 @@
 	\frac{100\cdot 10^7\log_2{10^7}\;instructions}{10^{7} \;instructions/\!second}\approx2,300\mbox{ seconds (just under 40 minutes)}
 	\end{equation}
 	
-	Looking at this one case, having one algorithm isn't going to be the better one for all cases.
-	%todo Hardware, software, the size of the list, and computer power all add to how efficient a sorting algorithm will be.
-	Why? That's when we need to side 
-	
-	An algorithm's runtime can vary greatly from nanoseconds, to minutes, or even to years.
-	%todo Measuring resources used for an algorithm to execute, the Big O notation would give you the answer.
-	But before we understand Big O notation, we’ll look into analyzing insertion sort.
-	
+	Looking at this case, insertion sort was not the most efficient algorithm over merge sort.
+	If you reference figure~\ref{fig:algeff}, you can clearly see when insertion sort betters merge sort depending on the size of the list.
+	But why does hardware not play a large addition to completing an algorithm?
+	Well it does, just not nearly as much as how well written the code is in the algorithm.
+	That's when we need to take a look at the contents of an algorithm before we run it on a machine.
 	
 	\paragraph{Analysis of Insertion Sort}
 	
-	The notation we use to describe the running time of an algorithm is defined in terms of a function whose domains is the set of natural numbers ($\mathbb{N}$ = \{ 1, 2 , 3 .. \})~\cite[p.~43]{intro}.
+	The notation we use to describe the running time of an algorithm is defined in terms of a function whose domains is the set of natural numbers, $\mathbb{N}$~\cite[p.~43]{intro}.
 	For insertion sort, the worst-case is $n^2$, this occurs when the list is in reverse order.
 	The larger a list is, the longer it'll take.
 	Thus, we need to define a few things to characterize insertion sort, running time and size of input.
@@ -185,13 +182,12 @@
 	Thus, every element will be inserted in the correct order once the first iteration completes across the size of the list being sorted.
 	Since insertion sort contains a loop within a loop, the running time can be a second degree thus taking much longer.
 	
-	Now, creating a running equation, we have to assign each line of code with $c_i$.
+	Now, creating a running equation, we have to assign each line of code with $c_i$ as done previously.
 	The table shown below is the running time with the pseudocode for insertion sort.
 	
 	\input{insertionSort-runningtime.tex}
 	
-	%todo wrost case first then best case% Now, the characteristic for the best case of insertion sort is
-	If the worst case was sorted using insertion sort, the characteristic would be $an^2$ + $bn$ + $c$, where a, b, and c were constants as shown below
+	If the worst case was sorted using insertion sort, the characteristic would be in the form of $an^2$ + $bn$ + $c$, where a, b, and c were constants as shown below
 	\begin{equation}
 	T(n) = (\frac{c_5}{2} + \frac{c_6}{2} + \frac{c_7}{2})n^2 + (c_1 + c_2 + c_4 + \frac{c_5}{2} - \frac{c_6}{2} - \frac{c_7}{2} + c_8)n - (c_2 + c_4 + c_5 + c_8)
 	\label{eqa:insertionSortWorstRunningTime}
@@ -206,24 +202,17 @@
 	T(n) = (c_1 + c_2 + c_4 + c_5 + c_8)n - (c_2 + c_4 + c_5 + c_8)
 	\label{eqa:insertionSortBestRunningTime}
 	\end{equation}
-	Equation~\ref{eqa:insertionSortBestRunningTime}.
-	which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
-	
-	
+	This equation which can be expressed as an + b for constants a and b that depend on the statement costs $c_i$ as shown in table~\ref{tab:insertionCode}.
 	
 	Looking at both equation~\ref{eqa:insertionSortBestRunningTime} and equation~\ref{eqa:insertionSortWorstRunningTime}, one is linear but the other is exponential.
-	For some cases, insertion sort will be the most efficient but not for every case.
+	For some cases, because insertion sort may be exponential, this sorting algorithm is not the best case every time due to this reason.
 	
 	\subsection{Comparison Sorts}
 	\label{CompSort}
 	Comparison sorts are any sorting algorithms that use logical comparisons to determine element order, typically $>$, $<$, $\ge$, or $\le$ is used.
 	
-	\paragraph{Insertion Sort}
-	
-	
-	\paragraph{title}
-	
 	%todo What are they, How do they work, When and when not to use them
+	
 	
 	\input{comparisonSortTable} %rad table file
 	
@@ -365,10 +354,10 @@ With sorting algorithms being a fundamental building block for countless other a
 	
 	
 	\bibitem{wiki-callStack}
-	Wikipedia–~\url{https://en.wikipedia.org/wiki/Call_stack}
+	Wikipedia: Call stack \url{https://en.wikipedia.org/wiki/Call_stack}
 	
 	\bibitem{wiki-recursiveFunction}
-	Wikipedia–~\url{https://en.wikipedia.org/wiki/Recursive_function}
+	Wikipedia: Recursive Function \url{https://en.wikipedia.org/wiki/Recursive_function}
 	
 	\bibitem{wiki-sortingAlgorithm}
 	Wikipedia: Sorting Algorithm \url{https://en.wikipedia.org/wiki/Sorting_algorithm}
