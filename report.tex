@@ -68,11 +68,11 @@
 	
 	 Sorting algorithms are a fundamental type of algorithm that many other more sophisticated algorithms are built upon.
 	 In the most abstract form, sorting algorithms take in a list of unordered items and output or modify the list to the desired order, whatever it may be$~\footnote{typically numeric or alphabetic order is used}$.
-	 The goal of our research was to gain a better understanding of sorting algorithms in general  and to learn the nuances between the different types of algorithms available.
-	 We wanted to learn what a makes a sorting algorithm efficient what are the limitations of the efficiency.
+	 The goal of our research was to gain a better understanding of sorting algorithms in general and to learn the nuances between the different types of algorithms available.
+	 We wanted to learn what a makes a sorting algorithm efficient and what are the limitations of the efficiency.
 	 
 	 This paper will go over definitions associated with sorting algorithms and it will cover the two broad categories of sorting algorithms, comparison and non-comparison.
-	 Next it will examine sorting efficiencies, different applications of sorting algorithms.
+	 Next it will examine sorting efficiencies and different applications of sorting algorithms.
 	 It is assumed that the reader has a basic understanding of what an algorithm is and has been exposed to pseudocode in some form.
 	
 	\section{Background} %"Introduce any new definitions, notation, or other background information necessary for understanding the rest of the paper. (Your audience is your classmates in Math 4, not your professor.) Depending on your subject, your background and introduction sections might be combined."
@@ -126,7 +126,7 @@
 	Machine A executes 10 billion instructions per second and machine B executes only 10 million per second.
 	Thus, machine A is a thousand times faster than machine B.
 	Insertion sort on machine A is written in an efficient manner resulting in a value of 3 for $c_1$.
-	Thus, it requires  $3n^2$ instructions to sort $n$ numbers.
+	Thus, it requires $3n^2$ instructions to sort $n$ numbers.
 	For machine B, the algorithm merge sort is implemented poorly causing $c_2$ is 100.
 	Merge sort is written as $100 n\log_2{n}$ instructions to sort $n$ numbers.
 	By using these parameters, the runtime can be calculated as followed:
@@ -230,10 +230,11 @@
 	Non-comparison sorts, like the name implies do not rely on the comparison operators to sort.
 	This gives non-comparison sorts a huge speed boost but of course there is a trade off to the increased speed.
 	Unlike the comparison sorts described in \ref{CompSort} which can sort any data that has a defined numerical value, non-comparison sorts rely on certain assumptions about what is being sorted in order to function.
-	This sets certain restrictions on the type of data that non-comparison sorts can manage.
+	This sets certain restrictions on the type of data that non-comparison sorts can manage efficiently.
+	The types of restriction vary depending on the sort used, but typical restrictions include the range of values, the distribution of values\footnote{Bucket sort is an example of this which requires an even distribution of values to perform well}, and the number of digits or bits per key.
 	Common non-comparisons sorts include: radix sort, burstsort, postman sort, bucket sort, and counting sort.
-	In table~\ref{tab:nonComparisionEfficency} are listed the average and worst cases for each sorting algorithm.
-	We will look at an examples of counting sort  in order to gain an understanding of what makes non-comparison sorts different.
+	Table~\ref{tab:nonComparisionEfficency} lists the average and worst cases for each sorting algorithm.
+	We will look at an examples of counting sort in order to gain an understanding of what makes non-comparison sorts different.
 
 	\input{non-comparisonSortTable} %rad table file
 	
@@ -266,7 +267,7 @@
 	
 	Now onto our variant.
 	We decided to forgo the recursion and keep everything to one function call.
-	%todo The reasoning for this is, recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}
+	The reasoning for this is, recursive functions have an overhead associated with them caused by the increased call stack \footnote{local variables must be reinitialized at each recursion level and the entrance of each function call must be stored so it can be returned to when the function exits}
 	By skipping the recursion step it allows the algorithm to first start comparing pairs of elements.
 	Visually it is represented by Figure~\ref{fig:newmerge}.
 	Do not let the Figure~\ref{fig:newmerge} fool you however.
@@ -287,7 +288,7 @@
 	The efficiency of insertion sort on small list sizes can be seen in the graph as well.
 	Quicksort is consistently faster than the new merge sort, with quicksort averaging 80\% of the runtime over the entire sample range.
 	However, it can be seen that at around 2 million elements, the new merge sort pulled ahead.
-	Each algorithm in Figure~\ref{fig:algeff} with the exception of insertion sort has an average runtime of $\Theta( n \cdot log (n) )$, yet it is clear from the plot that $\Theta()$ and $O()$ are not a precise enough descriptors when looking for the absolute fastest algorithm.
+	Each algorithm in Figure~\ref{fig:algeff} with the exception of insertion sort has an average runtime of $n \cdot log (n)$, yet it is clear from the plot that this approximation is not always precise enough when looking for the absolute fastest algorithm.
 
 	\begin{figure}[H]
 		\centering
