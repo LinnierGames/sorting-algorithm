@@ -239,10 +239,40 @@
 	\input{non-comparisonSortTable} %rad table file
 	
 	\begin{center}
-		\captionof{Snippet}[Counting sort]{Pseudocode for counting sort}
+		\captionof{Snippet}[Counting sort]{Pseudocode for counting sort\cite[p.~195]{intro}}
 		\lstinputlisting[xleftmargin=2in]{countingsort.cpp}
 		\label{snip:countsort}
 	\end{center}
+	
+	Counting sort has 3 for loops which make up the 3 main steps. 
+	Notice that there are no comparison operators.
+	The first loop counts the occurrences of each number, the second adds up the offset for each element caused by the numbers that precede it, and the third moves the numbers into sorted order.
+	\begin{figure}[H]
+		
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{_0000_count0.png} 
+			\caption{Before sorting}
+			\label{fig:count1}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{_0001_count1.png}
+			\caption{After 1st loop}
+			\label{fig:count2}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{_0002_count2.png}
+			\caption{After 2nd loop}
+			\label{fig:count3}
+		\end{subfigure}
+		\begin{subfigure}{0.24\textwidth}
+			\includegraphics[width=1.2in]{_0003_count3.png}
+			\caption{after 3rd loop}
+			\label{fig:count4}
+		\end{subfigure}
+
+		\caption{Counting sort progression}
+		\label{fig:countmerge}
+	\end{figure}
 	
 	\subsection{Exploration of a New Sorting Algorithm}
 	
